@@ -1,10 +1,11 @@
-name: Hello GitHub Actions
+name: Lancement manuel
 
-on: [push]
+on:
+  workflow_dispatch:
 
 jobs:
-  say-hello:
+  manuel-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Affichage d’un message
-        run: echo "🎉 Hello GitHub Actions depuis le workflow !"
+      - name: Message manuel
+        run: echo "Ce workflow a été lancé manuellement !"
