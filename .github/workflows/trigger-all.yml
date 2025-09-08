@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+# permissions:
+#   contents: read
+#   workflows: write
+
 env:
   GH_TOKEN: ${{ github.token }}
 
@@ -13,10 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Lister les workflows
-        run: gh workflow list
+        run: gh workflow list -R ${{ github.repository }}
 
       - name: Lancer workflow 1
-        run: gh workflow run multi-jobs.yml
+        run: gh workflow run -R ${{ github.repository }} multi-jobs.yml
 
       - name: Lancer workflow 2
-        run: gh workflow run hello-world.yml
+        run: gh workflow run -R ${{ github.repository }} hello-world.yml
