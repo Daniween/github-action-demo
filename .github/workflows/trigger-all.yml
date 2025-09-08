@@ -7,7 +7,7 @@ on:
 
 permissions:
   contents: read
-  workflows: write
+  actions: write
 
 env:
   GH_TOKEN: ${{ github.token }}
